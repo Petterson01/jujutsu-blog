@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Jujutsu Blog</title>
+    <link rel="shortcut icon" href="/public/imagens/Fav.jpeg" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #1c1c1c;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            flex: 1;
+        }
+
+        h2 {
+            color: #f4c542;
+            text-align: center;
+            height: 40px;
+        }
+
+        p {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        form {
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        label {
+            color: #f4c542;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #f4c542;
+            color: #1c1c1c;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e0b53a;
+        }
+
+        .socials {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .socials a {
+            color: #f4c542;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .header {
+            background-color: #7c0000;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .logo h1 {
+            color: #f4c542;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .branco {
+            color: white;
+        }
+
+        .menu a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            color: #e0b53a;
+        }
+
+        .footer {
+            background-color: #3498db;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <h1><span class="branco">Jujutsu</span> - Blog</h1>
+        </div>
+        <div class="menu">
+            <a href="/public/index.html">Página Inicial</a>
+            <a href="/public/novidades.html">Novidades</a>
+            <a href="/public/contato.html">Contato</a>
+            <a href="/public/sobre.html">Sobre</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Fale Conosco</h2>
+        <p>Tem alguma dúvida, sugestão ou quer compartilhar suas ideias sobre o mundo das maldições? Estamos prontos para te ouvir!</p>
+        
+        <form id="contact-form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" required></textarea>
+        
+            <button type="submit">Enviar</button>
+        </form>
+        
+        <div id="response-message"></div>
+        
+        <div class="socials">
+            <p>Ou nos acompanhe nas redes sociais:</p>
+            <a href="https://www.instagram.com/dnox_bruno/">Instagram</a> | 
+            <a href="https://www.linkedin.com/in/petterson-bruno-116a062a7">Linkedin</a> | 
+            <a href="https://m.facebook.com/petterson.bruno.353/">Facebook</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Petterson | Dnox 2024 - Todos os direitos reservados</p>
+    </div>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+    
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response-message').innerText = data.message;
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                document.getElementById('response-message').innerText = 'Ocorreu um erro. Tente novamente.';
+            });
+        });
+    </script>
+
+</body>
+</html>

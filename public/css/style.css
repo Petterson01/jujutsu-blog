@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #7c0000; 
+    padding: 15px;
+    text-align: center;
+}
+
+.logo h1 {
+    color: #f4c542;
+    font-size: 24px;
+    margin: 0;
+}
+.branco {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #3498db; 
+}
+
+.menu a,
+.menu a:visited {
+    color: #ffffff; 
+    text-decoration: none;
+    padding: 8px 12px;
+}
+.menu a:hover {
+    background-color: #3498db; 
+    color: #1c1c1c; 
+}
+
+.container {
+    display: flex;
+    flex: 1; 
+    margin: 0 auto; 
+    max-width: 920px; 
+    padding: 20px; 
+}
+
+.posts {
+    width: 660px;
+    margin-right: 20px;
+}
+
+.post {
+    background-color: #ffffff; 
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #3498db; 
+}
+
+.data-post {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.barra-lateral {
+    width: 240px;
+}
+
+.conteudo-lateral {
+    background-color: #1c1c1c;
+    padding: 10px;
+    color: #ffffff;
+    margin-bottom: 20px; 
+}
+
+.conteudo-lateral h3 {
+    background-color: #3498db;
+    color: white;
+    padding: 5px;
+}
+
+.post-destaque {
+    font-size: 0.8rem;
+    padding: 5px;
+    border-bottom: 1px solid lightgrey; 
+    color: #ffffff; 
+}
+
+.post-destaque:last-child {
+    border: none;
+}                                         
+
+.footer {
+    background-color: #3498db;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    width: 100%; 
+    position: relative;
+}
+
+.contato {
+    background-color: #1c1c1c;
+    padding: 60px 20px;
+    border-radius: 20px;
+    color: #ffffff;
+    min-height: 70vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+}
+
+.contato h2 {
+    color: #3498db; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.contato p {
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+.contato form {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+}
+.contato label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #3498db;
+}
+.contato input[type="text"],
+.contato input[type="email"],
+.contato textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #000000;
+}
+.contato input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.contato input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+.socials {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.socials a {
+    color: #3498db;
+    text-decoration: underline;
+    margin: 2 10px;
+}
+
