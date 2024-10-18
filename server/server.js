@@ -8,11 +8,26 @@ const PORT = 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
-
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html')); // Ou outro arquivo, como 'contato.html'
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+app.get('/contato', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/contato.html'));
+});
+
+app.get('/novidades', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/novidades.html'));
+});
+
+app.get('/cursos', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/cursos.html'));
+});
+
+app.get('/sobre', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/sobre.html'));
 });
 
 app.post('/api/contact', (req, res) => {
@@ -22,5 +37,5 @@ app.post('/api/contact', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
